@@ -1,16 +1,20 @@
-# This is a sample Python script.
+def string_count(string):
+    count_nums = []
+    count = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    letter = string[0]
+    for i in range(len(string)):
+        if string[i] == letter:
+            count += 1
+        elif string[i] != letter and count > 1:
+            count_nums.append(letter)
+            count_nums.append(str(count))
+            count = 1
+            letter = string[i]
+    count_nums.append(letter)
+    count_nums.append(str(count))
+    result = ''.join(count_nums)
+    return result
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+string = "AAAAAABBBBBCCCCDDDDDEEEFFFFAAA" #А6B5C4D5E3F4A3
+print(string_count(string))
